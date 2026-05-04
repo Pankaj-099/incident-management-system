@@ -79,6 +79,9 @@ pip install -r requirements.txt
 cp ../.env .env
 uvicorn app.main:app --reload --port 8000
 
+# Radis 
+docker compose up redis -d
+
 # Frontend (new terminal)
 cd frontend && npm install && npm run dev
 ```
