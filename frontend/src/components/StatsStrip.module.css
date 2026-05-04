@@ -1,0 +1,60 @@
+.strip{
+  display:flex;align-items:stretch;
+  background:var(--bg-surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;
+  margin-bottom:var(--space-5);
+  animation:fadeIn .3s ease;
+}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+
+.cell{
+  display:flex;flex-direction:column;justify-content:center;
+  gap:3px;padding:var(--space-4) var(--space-6);flex:1;
+  position:relative;transition:background var(--transition-fast);
+  min-width:0;
+}
+
+.cell:hover{background:var(--bg-elevated)}
+
+.cellAlert{
+  background:var(--p0-bg) !important;
+  box-shadow:inset 0 0 0 1px var(--p0-border);
+}
+
+.cellWarn{
+  background:var(--p1-bg) !important;
+  box-shadow:inset 0 0 0 1px var(--p1-border);
+}
+
+.cellAccent{background:var(--bg-elevated)}
+
+.cellLabel{
+  font-size:var(--text-2xs);color:var(--text-muted);
+  text-transform:uppercase;letter-spacing:.08em;font-weight:500;
+  white-space:nowrap;
+}
+
+.cellAlert .cellLabel{color:var(--p0)}
+.cellWarn  .cellLabel{color:var(--p1)}
+
+.cellVal{
+  font-size:var(--text-xl);font-weight:800;color:var(--text-primary);
+  letter-spacing:-.04em;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+.mono{font-family:var(--font-mono)}
+.cellAlert .cellVal{color:var(--p0)}
+.cellWarn  .cellVal{color:var(--p1)}
+.cellAccent .cellVal{color:var(--text-primary)}
+
+.divider{
+  position:absolute;right:0;top:20%;bottom:20%;
+  width:1px;background:var(--border);
+}
+
+@media(max-width:700px){
+  .strip{flex-wrap:wrap}
+  .cell{min-width:45%;border-bottom:1px solid var(--border)}
+  .divider{display:none}
+}

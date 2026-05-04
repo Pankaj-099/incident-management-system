@@ -1,0 +1,24 @@
+.page{max-width:1440px;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:var(--space-5);
+}
+
+.titleGroup{display:flex;align-items:center;gap:var(--space-3)}
+.titleIcon{color:var(--text-tertiary)}
+.title{font-size:var(--text-xl);font-weight:700;color:var(--text-primary);letter-spacing:-.04em}
+
+.workItemSection{margin-bottom:var(--space-5)}
+
+.bottomGrid{
+  display:grid;grid-template-columns:1fr 260px;
+  gap:var(--space-4);align-items:start;
+}
+
+.chartAndFeed{display:flex;flex-direction:column;gap:var(--space-4);min-width:0}
+.feedWrap{min-width:0}
+.testerCol{min-width:0}
+
+@media(max-width:960px){.bottomGrid{grid-template-columns:1fr}}

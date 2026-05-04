@@ -1,0 +1,10 @@
+.badge{
+  display:inline-flex;align-items:center;padding:1px 6px;border-radius:var(--radius-sm);
+  font-size:9px;font-weight:700;font-family:var(--font-mono);letter-spacing:.07em;
+  border:1px solid transparent;white-space:nowrap;text-transform:uppercase;
+}
+.critical{background:var(--p0-bg);color:var(--p0);border-color:var(--p0-border)}
+.high    {background:var(--p1-bg);color:var(--p1);border-color:var(--p1-border)}
+.medium  {background:var(--p2-bg);color:var(--p2);border-color:var(--p2-border)}
+.low     {background:var(--p3-bg);color:var(--p3);border-color:var(--p3-border)}
+.info    {background:var(--bg-overlay);color:var(--text-muted);border-color:var(--border)}

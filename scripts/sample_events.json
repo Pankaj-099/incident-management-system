@@ -1,0 +1,90 @@
+{
+  "description": "Sample IMS signal event payloads for testing all component types",
+  "events": [
+    {
+      "name": "RDBMS Primary Outage",
+      "payload": {
+        "component_id": "RDBMS_PRIMARY",
+        "component_type": "RDBMS",
+        "severity": "CRITICAL",
+        "message": "Primary database connection refused: max_connections exceeded",
+        "payload": {
+          "error_code": "PGERR_TOO_MANY_CONNECTIONS",
+          "active_connections": 500,
+          "max_connections": 500
+        }
+      }
+    },
+    {
+      "name": "Cache Hit Rate Collapse",
+      "payload": {
+        "component_id": "CACHE_CLUSTER_01",
+        "component_type": "CACHE",
+        "severity": "HIGH",
+        "message": "Cache hit rate dropped below 10%: DB fallback overwhelmed",
+        "payload": {
+          "hit_rate_pct": 8.1,
+          "eviction_rate": 12000,
+          "memory_used_pct": 94
+        }
+      }
+    },
+    {
+      "name": "API Gateway Latency Spike",
+      "payload": {
+        "component_id": "API_GATEWAY_01",
+        "component_type": "API",
+        "severity": "HIGH",
+        "message": "P99 latency exceeded 5000ms threshold on /api/orders",
+        "payload": {
+          "p99_ms": 5421,
+          "p50_ms": 340,
+          "error_rate_pct": 12.4
+        }
+      }
+    },
+    {
+      "name": "Async Queue Backlog",
+      "payload": {
+        "component_id": "ASYNC_QUEUE_01",
+        "component_type": "QUEUE",
+        "severity": "MEDIUM",
+        "message": "Queue depth exceeds 50,000 messages: consumers blocked on DB writes",
+        "payload": {
+          "queue_depth": 48200,
+          "consumers_blocked": 8,
+          "consumer_lag_seconds": 340
+        }
+      }
+    },
+    {
+      "name": "MCP Host Down",
+      "payload": {
+        "component_id": "MCP_HOST_02",
+        "component_type": "MCP_HOST",
+        "severity": "CRITICAL",
+        "message": "MCP Host lost database connectivity: tool calls failing",
+        "payload": {
+          "failed_tool_calls": 320,
+          "consecutive_failures": 45,
+          "last_successful_call": "2024-01-01T10:00:00Z"
+        }
+      }
+    },
+    {
+      "name": "NoSQL Replication Lag",
+      "payload": {
+        "component_id": "NOSQL_CLUSTER_01",
+        "component_type": "NOSQL",
+        "severity": "MEDIUM",
+        "message": "Replication lag exceeding 30s on secondary nodes",
+        "payload": {
+          "lag_seconds": 34,
+          "affected_nodes": ["node-2", "node-3"],
+          "primary_write_rate": 2400
+        }
+      }
+    }
+  ],
+  "curl_example": "curl -X POST http://localhost:8000/ingest -H 'Content-Type: application/json' -d @scripts/sample_events.json"
+}

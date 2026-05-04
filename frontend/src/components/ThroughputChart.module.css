@@ -1,0 +1,70 @@
+.container{
+  background:var(--bg-surface);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;
+}
+
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:var(--space-4) var(--space-5);border-bottom:1px solid var(--border);
+  background:var(--bg-elevated);
+}
+
+.titleRow{display:flex;align-items:center;gap:var(--space-2)}
+
+.titleIcon{color:var(--text-tertiary)}
+
+.title{font-size:var(--text-sm);font-weight:600;color:var(--text-primary)}
+
+.subtitle{
+  font-size:var(--text-xs);color:var(--text-muted);
+  font-family:var(--font-mono);letter-spacing:.04em;
+}
+
+.stats{display:flex;align-items:center;gap:var(--space-3)}
+
+.stat{display:flex;flex-direction:column;align-items:flex-end;gap:1px}
+
+.statVal{font-size:var(--text-sm);font-weight:700;font-family:var(--font-mono);color:var(--text-primary)}
+
+.statLabel{font-size:var(--text-2xs);color:var(--text-muted);letter-spacing:.06em;text-transform:uppercase}
+
+.statDivider{width:1px;height:24px;background:var(--border)}
+
+.refreshBtn{
+  display:flex;align-items:center;justify-content:center;
+  width:24px;height:24px;background:var(--bg-overlay);
+  border:1px solid var(--border);border-radius:var(--radius-sm);
+  color:var(--text-tertiary);transition:all var(--transition-fast);
+}
+.refreshBtn:hover{color:var(--text-secondary);border-color:var(--border-strong)}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{animation:spin .7s linear infinite}
+
+.chartWrap{padding:var(--space-4) var(--space-4) var(--space-2)}
+
+/* Loading skeleton bars */
+.loading{height:120px;display:flex;align-items:flex-end;padding:0 var(--space-2)}
+
+.loadingBars{display:flex;align-items:flex-end;gap:2px;width:100%;height:100%}
+
+@keyframes loadPulse{0%,100%{opacity:.15}50%{opacity:.35}}
+
+.loadBar{
+  flex:1;background:var(--text-primary);border-radius:1px 1px 0 0;
+  animation:loadPulse 1.4s ease-in-out infinite;
+}
+
+/* Custom tooltip */
+.tooltip{
+  background:var(--bg-elevated);border:1px solid var(--border-strong);
+  border-radius:var(--radius-md);padding:var(--space-2) var(--space-3);
+  box-shadow:var(--shadow-md);
+}
+
+.tooltipTime{font-size:var(--text-xs);color:var(--text-tertiary);font-family:var(--font-mono);margin-bottom:2px}
+
+.tooltipVal{
+  font-size:var(--text-sm);font-weight:700;font-family:var(--font-mono);color:var(--text-primary);
+}
+.tooltipVal span{font-weight:400;color:var(--text-tertiary);font-size:var(--text-xs);margin-left:4px}
